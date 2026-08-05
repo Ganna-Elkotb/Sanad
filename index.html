@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سند | مساحتكِ الآمنة للدعم النفسي</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-primary: #fdfbfb;
+            --bg-secondary: #ffffff;
+            --bg-card: #ffffff;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --accent-color: #d53f8c;
+            --accent-hover: #b83280;
+            --accent-light: #fff5f7;
+            --border-color: #edf2f7;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 25px -5px rgba(213, 63, 140, 0.1);
+            --chat-user-bg: #d53f8c;
+            --chat-bot-bg: #f7fafc;
+            --radius-main: 20px;
+            --transition: all 0.3s ease;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #1e293b;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent-color: #f472b6;
+            --accent-hover: #ec4899;
+            --accent-light: rgba(244, 114, 182, 0.1);
+            --border-color: #334155;
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+            --chat-user-bg: #ec4899;
+            --chat-bot-bg: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Tajawal', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: var(--transition);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: var(--bg-secondary);
+            padding: 1.2rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 15px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: var(--transition);
+            padding: 8px 14px;
+            border-radius: 12px;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+            background-color: var(--accent-light);
+        }
+
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            color: var(--accent-color);
+            transform: rotate(15deg);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 3.5rem 1rem;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--accent-light) 100%);
+            border-radius: var(--radius-main);
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Features Grid */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--radius-main);
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Breathing Exercise Section */
+        .breathing-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        .breath-circle-wrapper {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5rem 0;
+        }
+
+        .breath-circle {
+            width: 120px;
+            height: 120px;
+            background: var(--accent-light);
+            border: 4px solid var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 20px rgba(213, 63, 140, 0.2);
+            transition: transform 4s ease-in-out, background-color 0.5s ease;
+        }
+
+        .breath-circle.inhale {
+            transform: scale(1.45);
+            background: var(--accent-color);
+        }
+
+        .breath-circle.hold {
+            transform: scale(1.45);
+            background: #805ad5;
+            border-color: #6b46c1;
+        }
+
+        .breath-circle.exhale {
+            transform: scale(1);
+            background: var(--accent-light);
+        }
+
+        .breath-text {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            transition: color 0.3s ease;
+        }
+
+        .breath-circle.inhale .breath-text {
+            color: #ffffff;
+        }
+
+        .breath-circle.hold .breath-text {
+            color: #ffffff;
+        }
+
+        .breath-timer {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            height: 40px;
+        }
+
+        /* Mood Tracker */
+        .mood-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .mood-btn {
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            padding: 12px 8px;
+            border-radius: 15px;
+            cursor: pointer;
+            text-align: center;
+            transition: var(--transition);
+            color: var(--text-primary);
+        }
+
+        .mood-btn i {
+            font-size: 1.8rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .mood-btn:hover,
+        .mood-btn.active {
+            border-color: var(--accent-color);
+            background: var(--accent-light);
+            color: var(--accent-color);
+        }
+
+        .advice-box {
+            background: var(--bg-primary);
+            padding: 1.2rem;
+            border-radius: 15px;
+            border-right: 4px solid var(--accent-color);
+            min-height: 80px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Secret Journal */
+        .journal-input {
+            width: 100%;
+            height: 120px;
+            background: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1rem;
+            color: var(--text-primary);
+            resize: none;
+            margin-bottom: 1rem;
+            outline: none;
+        }
+
+        .journal-input:focus {
+            border-color: var(--accent-color);
+        }
+
+        .journal-btns {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+        }
+
+        .btn-danger {
+            background: #e53e3e;
+            color: #fff;
+        }
+
+        .btn-danger:hover {
+            background: #c53030;
+        }
+
+        .saved-journal {
+            background: var(--bg-primary);
+            padding: 1rem;
+            border-radius: 12px;
+            border: 1px dashed var(--border-color);
+            max-height: 150px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-size: 0.95rem;
+        }
+
+        /* Relax Sound Player */
+        .sound-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .sound-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-primary);
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .sound-play-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: none;
+            background: var(--accent-color);
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .sound-play-btn:hover {
+            transform: scale(1.08);
+        }
+
+        /* Chatbot Container */
+        .chat-card {
+            display: flex;
+            flex-direction: column;
+            height: 520px;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: var(--bg-primary);
+            border-radius: 15px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.bot {
+            background: var(--chat-bot-bg);
+            color: var(--text-primary);
+            align-self: flex-start;
+            border-bottom-right-radius: 4px;
+        }
+
+        .message.user {
+            background: var(--chat-user-bg);
+            color: #ffffff;
+            align-self: flex-end;
+            border-bottom-left-radius: 4px;
+        }
+
+        .chat-input-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            outline: none;
+        }
+
+        .chat-input:focus {
+            border-color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.1rem;
+            }
+
+            .mood-options {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            /* Hide for clean mobile look */
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="brand">
+            <i class="fa-solid fa-hands-holding-child"></i>
+            <span>سند</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#breathing">مساحة التنفس</a></li>
+            <li><a href="#mood">المزاج</a></li>
+            <li><a href="#journal">الدفتر</a></li>
+            <li><a href="#relax">الهدوء</a></li>
+            <li><a href="#chat">المستشارة</a></li>
+        </ul>
+        <button class="theme-toggle" id="themeToggle" title="تغيير المظهر">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>أهلاً بكِ في مساحتكِ الآمنة</h1>
+            <p>هنا تجدين الهدوء، الدعم، والأذن التي تسمعكِ بدون أحكام. ملاذكِ اليومي للعناية بصحتكِ النفسية.</p>
+        </section>
+
+        <!-- Grid 1: Breathing & Mood -->
+        <div class="grid-2">
+
+            <!-- Breathing Exercise Card -->
+            <div class="card" id="breathing">
+                <h2 class="card-title"><i class="fa-solid fa-wind"></i> مساحة التنفس والاسترخاء</h2>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 0.5rem;">تمرين التنفس العميق
+                    (4-4-4) لتهدئة الجهاز العصبي وتقليل التوتر فكراً وجسداً:</p>
+
+                <div class="breathing-container">
+                    <div class="breath-timer" id="breathTimer">جاهزة؟</div>
+                    <div class="breath-circle-wrapper">
+                        <div class="breath-circle" id="breathCircle">
+                            <span class="breath-text" id="breathText">ابدأي</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="breathBtn" onclick="toggleBreathing()">
+                        <i class="fa-solid fa-play"></i> بدء تمرين التنفس
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mood Tracker -->
+            <div class="card" id="mood">
+                <h2 class="card-title"><i class="fa-solid fa-face-smile"></i> متتبع المزاج اليومي</h2>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">كيف تشعرين الآن؟ اختاري
+                    حالتكِ للحصول على نصيحة داعمة:</p>
+
+                <div class="mood-options">
+                    <button class="mood-btn" onclick="setMood('happy', event)">
+                        <i class="fa-solid fa-face-laugh-beam"></i> سعيدة
+                    </button>
+                    <button class="mood-btn" onclick="setMood('sad', event)">
+                        <i class="fa-solid fa-face-sad-tear"></i> حزينة
+                    </button>
+                    <button class="mood-btn" onclick="setMood('anxious', event)">
+                        <i class="fa-solid fa-face-flushed"></i> متوترة
+                    </button>
+                    <button class="mood-btn" onclick="setMood('tired', event)">
+                        <i class="fa-solid fa-face-tired"></i> مرهقة
+                    </button>
+                    <button class="mood-btn" onclick="setMood('angry', event)">
+                        <i class="fa-solid fa-face-angry"></i> غاضبة
+                    </button>
+                    <button class="mood-btn" onclick="setMood('calm', event)">
+                        <i class="fa-solid fa-face-smile-beam"></i> هادئة
+                    </button>
+                </div>
+
+                <div class="advice-box" id="adviceBox">
+                    <span>اضغطي على مشاعركِ الحالية لنقدم لكِ نصيحة دافئة...</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Grid 2: Relax Sounds & Secret Journal -->
+        <div class="grid-2">
+
+            <!-- Relax Sound Player -->
+            <div class="card" id="relax">
+                <h2 class="card-title"><i class="fa-solid fa-headphones"></i> ركن الهدوء والاسترخاء</h2>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">أصوات طبيعية حية مولدة
+                    برمجياً لتنقية ذهنكِ والمساعدة على الاسترخاء:</p>
+
+                <div class="sound-list">
+                    <div class="sound-item">
+                        <span><i class="fa-solid fa-cloud-rain"
+                                style="color: var(--accent-color); margin-left: 8px;"></i> صوت المطر الهادئ</span>
+                        <button class="sound-play-btn" onclick="toggleAudio('rain', this)"><i
+                                class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="sound-item">
+                        <span><i class="fa-solid fa-water" style="color: var(--accent-color); margin-left: 8px;"></i>
+                            أمواج البحر المهدئة</span>
+                        <button class="sound-play-btn" onclick="toggleAudio('waves', this)"><i
+                                class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="sound-item">
+                        <span><i class="fa-solid fa-wind" style="color: var(--accent-color); margin-left: 8px;"></i>
+                            نسيم الرياح الدافئة</span>
+                        <button class="sound-play-btn" onclick="toggleAudio('wind', this)"><i
+                                class="fa-solid fa-play"></i></button>
+                    </div>
+                    <div class="sound-item">
+                        <span><i class="fa-solid fa-dove" style="color: var(--accent-color); margin-left: 8px;"></i>
+                            أطياف الضوضاء البيضاء (White Noise)</span>
+                        <button class="sound-play-btn" onclick="toggleAudio('whitenoise', this)"><i
+                                class="fa-solid fa-play"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Secret Journal -->
+            <div class="card" id="journal">
+                <h2 class="card-title"><i class="fa-solid fa-book-bookmark"></i> دفتر السرقات الجميلة (يومياتي)</h2>
+                <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">اكتبي كل ما يجول في
+                    خاطركِ بحرية. كلماتكِ تُحفظ على جهازكِ فقط بأمان تام.</p>
+
+                <textarea class="journal-input" id="journalText"
+                    placeholder="اكتبي هنا كل ما بشعوركِ اليوم..."></textarea>
+
+                <div class="journal-btns">
+                    <button class="btn btn-primary" onclick="saveJournal()"><i class="fa-solid fa-floppy-disk"></i> حفظ
+                        اليوميات</button>
+                    <button class="btn btn-danger" onclick="deleteJournal()"><i class="fa-solid fa-trash-can"></i> مسح
+                        اليوميات</button>
+                </div>
+
+                <div class="saved-journal" id="savedJournalDisplay">
+                    <i style="color: var(--text-secondary);">لا توجد يوميات محفوظة بعد...</i>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Single Row Grid: Chatbot -->
+        <div class="grid-2">
+            <!-- Smart Chatbot -->
+            <div class="card chat-card" id="chat">
+                <h2 class="card-title"><i class="fa-solid fa-comments"></i> مستشارة "سند" الذكية</h2>
+
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot">
+                        أهلاً بكِ يا عزيزتي في "سند" ❤️ أنا هنا دائماً للاستماع إليكِ والحديث معكِ في أي شيء يقلقكِ. كيف
+                        يمكنني دعمكِ اليوم؟
+                    </div>
+                </div>
+
+                <div class="chat-input-area">
+                    <input type="text" class="chat-input" id="chatInput" placeholder="اكتبي رسالتكِ هنا..."
+                        onkeypress="handleChatKey(event)">
+                    <button class="btn btn-primary" onclick="sendMessage()"><i
+                            class="fa-solid fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>موقع "سند" - مساحة آمنة ومصممة بكل حب ودعم للفتيات والسيدات ❤️ جميع الحقوق محفوظة.</p>
+    </footer>
+
+    <!-- JavaScript logic -->
+    <script>
+        /* 1. Dark / Light Mode Toggle */
+        const themeToggleBtn = document.getElementById('themeToggle');
+        const themeIcon = themeToggleBtn.querySelector('i');
+
+        themeToggleBtn.addEventListener('click', () => {
+            const currentTheme = document.body.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.body.removeAttribute('data-theme');
+                themeIcon.className = 'fa-solid fa-moon';
+                localStorage.setItem('sand_theme', 'light');
+            } else {
+                document.body.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fa-solid fa-sun';
+                localStorage.setItem('sand_theme', 'dark');
+            }
+        });
+
+        if (localStorage.getItem('sand_theme') === 'dark') {
+            document.body.setAttribute('data-theme', 'dark');
+            themeIcon.className = 'fa-solid fa-sun';
+        }
+
+        /* 2. Interactive Breathing Exercise (Inhale - Hold - Exhale) */
+        let isBreathingRunning = false;
+        let breathingInterval = null;
+        let countdownInterval = null;
+
+        const breathCircle = document.getElementById('breathCircle');
+        const breathText = document.getElementById('breathText');
+        const breathTimer = document.getElementById('breathTimer');
+        const breathBtn = document.getElementById('breathBtn');
+
+        function toggleBreathing() {
+            if (isBreathingRunning) {
+                stopBreathing();
+            } else {
+                startBreathing();
+            }
+        }
+
+        function startBreathing() {
+            isBreathingRunning = true;
+            breathBtn.innerHTML = '<i class="fa-solid fa-pause"></i> إيقاف التمرين';
+            breathBtn.className = 'btn btn-danger';
+            runBreathingCycle();
+        }
+
+        function stopBreathing() {
+            isBreathingRunning = false;
+            clearInterval(breathingInterval);
+            clearInterval(countdownInterval);
+            breathCircle.className = 'breath-circle';
+            breathText.textContent = 'ابدأي';
+            breathTimer.textContent = 'تم الإيقاف';
+            breathBtn.innerHTML = '<i class="fa-solid fa-play"></i> بدء تمرين التنفس';
+            breathBtn.className = 'btn btn-primary';
+        }
+
+        function runBreathingCycle() {
+            if (!isBreathingRunning) return;
+
+            // Phase 1: Inhale (شهيق - 4 seconds)
+            breathCircle.className = 'breath-circle inhale';
+            breathText.textContent = 'شهيق...';
+            startCountdown(4);
+
+            breathingInterval = setTimeout(() => {
+                if (!isBreathingRunning) return;
+
+                // Phase 2: Hold Breath (حبس النفس - 4 seconds)
+                breathCircle.className = 'breath-circle hold';
+                breathText.textContent = 'احبسي نفسكِ...';
+                startCountdown(4);
+
+                breathingInterval = setTimeout(() => {
+                    if (!isBreathingRunning) return;
+
+                    // Phase 3: Exhale (زفير - 4 seconds)
+                    breathCircle.className = 'breath-circle exhale';
+                    breathText.textContent = 'زفير...';
+                    startCountdown(4);
+
+                    breathingInterval = setTimeout(() => {
+                        if (isBreathingRunning) {
+                            runBreathingCycle(); // Loop cycle
+                        }
+                    }, 4000);
+
+                }, 4000);
+
+            }, 4000);
+        }
+
+        function startCountdown(seconds) {
+            clearInterval(countdownInterval);
+            let timeLeft = seconds;
+            breathTimer.textContent = timeLeft;
+            countdownInterval = setInterval(() => {
+                timeLeft--;
+                if (timeLeft > 0) {
+                    breathTimer.textContent = timeLeft;
+                } else {
+                    clearInterval(countdownInterval);
+                }
+            }, 1000);
+        }
+
+        /* 3. Mood Tracker */
+        const moodAdvices = {
+            happy: "رائع جداً! السعادة تليق بكِ. استغلي هذا الشعور الإيجابي في ممارسة هواية تحبينها أو نشر البهجة لمن حولكِ ✨",
+            sad: "من الطبيعي جداً أن نشعر بالحزن أحياناً. لا تقسي على نفسكِ، خذي نفساً عميقاً، وتذكري أن هذه المشاعر ستعبر كما عبرت غيرها ❤️",
+            anxious: "التوتر يضخم الأشياء. جربي الآن قسم التنفس بالأعلى (شهيق، حبس، زفير) لتهدئة ضربات قلبكِ وتصفية ذهنكِ 🌿",
+            tired: "جسدكِ وعقلكِ يطالبانكِ بالراحة. خذي قسطاً كافياً من النوم، واشربي كوباً من المشروب المفضل لديكِ ودعي المهام جانباً الآن ☕",
+            angry: "الغضب طاقة حبسها العقل. ابتعدي عن مصدر الإزعاج قليلاً، اغسلي وجهكِ بماء بارد، واكتبي كل ما يغضبكِ في ورقة ثم مزقيها 🍃",
+            calm: "الهدوء نعمة عظيمة. استمتعي بهذه اللحظة من السكينة والسلام الداخلي، وكوني ممتنة لوجودكِ الصافي الآن 🌸"
+        };
+
+        function setMood(mood, e) {
+            document.querySelectorAll('.mood-btn').forEach(btn => btn.classList.remove('active'));
+            e.currentTarget.classList.add('active');
+
+            const adviceBox = document.getElementById('adviceBox');
+            adviceBox.style.opacity = '0';
+            setTimeout(() => {
+                adviceBox.innerHTML = `<span>${moodAdvices[mood]}</span>`;
+                adviceBox.style.opacity = '1';
+            }, 200);
+        }
+
+        /* 4. Secret Journal */
+        const journalText = document.getElementById('journalText');
+        const savedJournalDisplay = document.getElementById('savedJournalDisplay');
+
+        function loadJournal() {
+            const saved = localStorage.getItem('sand_journal');
+            if (saved && saved.trim() !== "") {
+                savedJournalDisplay.textContent = saved;
+            } else {
+                savedJournalDisplay.innerHTML = '<i style="color: var(--text-secondary);">لا توجد يوميات محفوظة بعد...</i>';
+            }
+        }
+
+        function saveJournal() {
+            const text = journalText.value.trim();
+            if (text === "") return;
+
+            const timestamp = new Date().toLocaleString('ar-EG');
+            const entry = `[${timestamp}]\n${text}`;
+
+            localStorage.setItem('sand_journal', entry);
+            journalText.value = '';
+            loadJournal();
+            alert('تم حفظ يومياتكِ بنجاح وبأمان تام ✨');
+        }
+
+        function deleteJournal() {
+            if (confirm('هل أنتِ متأكدة من رغبتكِ في حذف اليوميات؟ لا يمكن استرجاعها بعد ذلك.')) {
+                localStorage.removeItem('sand_journal');
+                loadJournal();
+                alert('تم حذف اليوميات بنجاح.');
+            }
+        }
+
+        loadJournal();
+
+        /* 5. Synthesized Audio Engine (Web Audio API) */
+        let audioCtx = null;
+        let activeNodes = {};
+
+        function initAudioContext() {
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            }
+        }
+
+        function toggleAudio(type, btn) {
+            initAudioContext();
+
+            if (activeNodes[type]) {
+                activeNodes[type].stop();
+                delete activeNodes[type];
+                btn.innerHTML = '<i class="fa-solid fa-play"></i>';
+                btn.style.background = 'var(--accent-color)';
+            } else {
+                for (let key in activeNodes) {
+                    activeNodes[key].stop();
+                    delete activeNodes[key];
+                }
+                document.querySelectorAll('.sound-play-btn').forEach(b => {
+                    b.innerHTML = '<i class="fa-solid fa-play"></i>';
+                    b.style.background = 'var(--accent-color)';
+                });
+
+                const bufferSize = audioCtx.sampleRate * 2;
+                const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                const data = buffer.getChannelData(0);
+
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = Math.random() * 2 - 1;
+                }
+
+                const noise = audioCtx.createBufferSource();
+                noise.buffer = buffer;
+                noise.loop = true;
+
+                const filter = audioCtx.createBiquadFilter();
+                const gain = audioCtx.createGain();
+
+                if (type === 'rain') {
+                    filter.type = 'lowpass';
+                    filter.frequency.value = 1000;
+                    gain.gain.value = 0.15;
+                } else if (type === 'waves') {
+                    filter.type = 'bandpass';
+                    filter.frequency.value = 400;
+                    gain.gain.value = 0.2;
+                    const lfo = audioCtx.createOscillator();
+                    lfo.frequency.value = 0.2;
+                    const lfoGain = audioCtx.createGain();
+                    lfoGain.gain.value = 300;
+                    lfo.connect(filter.frequency);
+                    lfo.start();
+                } else if (type === 'wind') {
+                    filter.type = 'lowpass';
+                    filter.frequency.value = 500;
+                    gain.gain.value = 0.12;
+                } else if (type === 'whitenoise') {
+                    filter.type = 'lowpass';
+                    filter.frequency.value = 3000;
+                    gain.gain.value = 0.05;
+                }
+
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(audioCtx.destination);
+
+                noise.start();
+                activeNodes[type] = noise;
+
+                btn.innerHTML = '<i class="fa-solid fa-pause"></i>';
+                btn.style.background = '#e53e3e';
+            }
+        }
+
+        /* 6. Smart Responsive Chatbot */
+        const botKnowledge = [
+            {
+                keywords: ['حزن', 'حزينة', 'زعلانة', 'دموع', 'أبكي', 'مكتئبة', 'ضيق'],
+                response: "أشعر بكِ يا عزيزتي. الحزن هو وسيلة روحكِ للتعبير والتفريغ. لا تضغطي على نفسكِ لتكوني بخير في هذه اللحظة. اسمحي لمشاعركِ بالمرور، وتذكري دائماً أنكِ قوية حتى وأنتِ في أضعف حالاتكِ. هل تحبين أن تحكي لي أكثر عما يضايقكِ؟"
+            },
+            {
+                keywords: ['توتر', 'خوف', 'قلق', 'خائفة', 'متوترة', 'ارتباك', 'خوف'],
+                response: "القلق يضخم الأشياء ويتعب العقل. جربي قسم تمرين التنفس بالأعلى (شهيق، حبس، زفير). خذي نفساً عميقاً جداً... وركزي في اللحظة الحالية فقط، وكل شيء سيكون بخير."
+            },
+            {
+                keywords: ['تعب', 'تعبانة', 'مرهقة', 'ارهاق', 'ضغط', 'ضغط نفسي', 'استنزاف'],
+                response: "سلامة قلبكِ من كل تعب. الإرهاق النفسي أو الجسدي يعني أنكِ قدمتِ الكثير واستنزفتِ طاقتكِ. حان الوقت لتأخذي استراحة بدون أي شعور بالذنب. اتركي كل شيء جانباً واسترخي تماماً."
+            },
+            {
+                keywords: ['وحدة', 'وحيدة', 'محدش فاهم', 'محدش حاسس', 'انعزال'],
+                response: "أنا هنا معكِ ولن أترككِ. حتى لو شعرتِ أن العالم حولكِ لا يفهمكِ، فاعلمي أن قيمتكِ العالية لا تعتمد على فهم الآخرين لكِ. أنتِ ملهمة ووجودكِ يصنع فارقاً كبيراً، وأنا أستمع إليكِ بكل حب."
+            },
+            {
+                keywords: ['شكرا', 'شكراً', 'تسلمي', 'جميل', 'ممتنة', 'بحبك'],
+                response: "هذا واجبي يا جميلة! يسعدني جداً أن أكون بجانبكِ دائماً. أتمنى لكِ يومًا مليئاً بالهدوء والسلام النفسي ❤️"
+            },
+            {
+                keywords: ['مرحبا', 'أهلا', 'سلام', 'هاي', 'ازيك', 'مين انت'],
+                response: "أهلاً وسهلاً بكِ في سند ✨ أنا مستشارتكِ وصديقتكِ الافتراضية، موجودة هنا لدعمكِ والاستماع إليكِ في أي وقت بدون أي أحكام. كيف أستطيع مساندتكِ اليوم؟"
+            }
+        ];
+
+        const defaultResponses = [
+            "أنا هنا وأستمع إليكِ بإنصات تام. واصلي الحديث وافرغي ما في قلبكِ بكل حرية.",
+            "كلماتكِ مهمة بالنسبة لي. خذي وقتكِ الكافي للتعبير، فأنا معكِ ولن أملّ من الاستماع إليكِ.",
+            "أنتِ تفعلين أفضل ما لديكِ دائماً، ولا بأس إن شعرتِ أحياناً بالارتباك. واصلي، أنا بجانبكِ.",
+            "أتفهم تماماً ما تمرين به. الصبر والرفق بنفسكِ هما أجمل هدية تقدمينها لروحكِ اليوم."
+        ];
+
+        function sendMessage() {
+            const input = document.getElementById('chatInput');
+            const messageText = input.value.trim();
+            if (messageText === "") return;
+
+            appendMessage(messageText, 'user');
+            input.value = '';
+
+            setTimeout(() => {
+                const botReply = generateBotReply(messageText);
+                appendMessage(botReply, 'bot');
+            }, 600);
+        }
+
+        function handleChatKey(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function appendMessage(text, sender) {
+            const chatMessages = document.getElementById('chatMessages');
+            const msgDiv = document.createElement('div');
+            msgDiv.className = `message ${sender}`;
+            msgDiv.textContent = text;
+            chatMessages.appendChild(msgDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function generateBotReply(userText) {
+            const lowerText = userText.toLowerCase();
+
+            for (let item of botKnowledge) {
+                for (let key of item.keywords) {
+                    if (lowerText.includes(key)) {
+                        return item.response;
+                    }
+                }
+            }
+
+            const randomIndex = Math.floor(Math.random() * defaultResponses.length);
+            return defaultResponses[randomIndex];
+        }
+    </script>
+</body>
+
+</html>
